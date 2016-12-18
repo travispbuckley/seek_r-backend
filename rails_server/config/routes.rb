@@ -3,4 +3,7 @@ Rails.application.routes.draw do
    resources :users
    resources :sessions
    resources :messages
+
+   post '/sessions/check' => 'sessions#check'
+
 end
