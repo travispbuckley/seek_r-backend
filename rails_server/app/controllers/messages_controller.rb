@@ -19,6 +19,7 @@ skip_before_action :verify_authenticity_token
     @sender = User.find(session[:user])
     @conversation
     @message = Message.new(sender_id:@sender.id,receiver_id:@receiver.id,body:params[:message][:body])
+    @message.location = params[:message][:location] # this is optional; may need to specify or nil/string
     if @message.save
       p "%%%%%%%SUCCESSFUL MESSAGE CREATION%%%%%%"
     else
@@ -37,6 +38,10 @@ skip_before_action :verify_authenticity_token
     end
     p messages_bodies
     p user.username
-    render :json => {data: {messages: messages_bodies}}
+    location = messages.where("location != ''").last.location # this grabs the last location sent
+    latitude = location.split(", ")[0]
+    longitude = location.split(", ")[1]
+    location = [latitude.to_f, longitude.to_f]
+    render :json => {data: {messages: messages_bodies}, location: location}
   end
 end
