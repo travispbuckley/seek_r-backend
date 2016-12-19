@@ -41,7 +41,7 @@ skip_before_action :verify_authenticity_token
     location = messages.where("location != ''").last.location # this grabs the last location sent
     latitude = location.split(", ")[0]
     longitude = location.split(", ")[1]
-    location = [latitude, longitude]
+    location = [latitude.to_f, longitude.to_f]
     render :json => {data: {messages: messages_bodies}, location: location}
   end
 end
