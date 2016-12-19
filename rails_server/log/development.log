@@ -4691,3 +4691,8 @@ Processing by MessagesController#index as */*
 Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 2.2ms)
 
 
+  [1m[36mMessage Load (0.9ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."sender_id" = $1 AND "messages"."receiver_id" = $2[0m  [["sender_id", 1], ["receiver_id", 2]]
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."sender_id" IN (1, 2) AND "messages"."receiver_id" IN (2, 1)[0m
+  [1m[36mMessage Load (1.0ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."sender_id" IN (1, 2) AND "messages"."receiver_id" IN (2, 1) ORDER BY "messages"."created_at" ASC[0m
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."sender_id" IN (1, 2) AND "messages"."receiver_id" IN (2, 1) ORDER BY "messages"."created_at" ASC[0m
+  [1m[36mMessage Load (0.7ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."sender_id" IN (1, 2) AND "messages"."receiver_id" IN (2, 1) ORDER BY "messages"."created_at" ASC[0m
