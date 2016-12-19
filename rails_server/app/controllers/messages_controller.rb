@@ -26,4 +26,17 @@ skip_before_action :verify_authenticity_token
       p @message.errors.full_messages
     end
   end
+
+  def show
+    user = User.find_by(username:params[:id])
+    you = User.find(session[:user])
+    messages = Message.where(sender_id:[you.id,user.id], receiver_id: [user.id,you.id]).order(:created_at)
+    p messages
+    messages_bodies = messages.map do |message|
+        message.sender.username + ": " + message.body
+    end
+    p messages_bodies
+    p user.username
+    render :json => {data: {messages: messages_bodies}}
+  end
 end
