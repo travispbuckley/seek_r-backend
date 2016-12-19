@@ -38,6 +38,10 @@ skip_before_action :verify_authenticity_token
     end
     p messages_bodies
     p user.username
-    render :json => {data: {messages: messages_bodies}}
+    location = messages.where("location != ''").last.location # this grabs the last location sent
+    latitude = location.split(", ")[0]
+    longitude = location.split(", ")[1]
+    location = [latitude, longitude]
+    render :json => {data: {messages: messages_bodies}, location: location}
   end
 end
