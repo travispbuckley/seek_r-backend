@@ -1,4 +1,7 @@
+### our own gitignores ###
 .DS_Store
+log/development.log
+### ####
 
 *.rbc
 capybara-*.html
