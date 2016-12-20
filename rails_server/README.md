@@ -1,24 +1,5 @@
-# README
+# seek_r-backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the backend for our final project. It utilizes Ruby/Rails, and works with simple HTTP Requests.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Note to self: Combine with front-end when project nears completion!
