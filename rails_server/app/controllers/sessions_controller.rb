@@ -28,7 +28,7 @@ skip_before_action :verify_authenticity_token
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    render :json => session
   end
 
 end

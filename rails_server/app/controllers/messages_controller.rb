@@ -9,7 +9,10 @@ skip_before_action :verify_authenticity_token
     Message.where(receiver_id: @you.id).each do |message|
       @conversations += [User.find(message.sender_id).username]
     end
+    @conversations = ["No Conversations found"] if @conversations.empty?
     @conversations = Hash[@conversations.uniq.map.with_index { |value, index| [index, value] }]
+    p @conversations
+
     render :json => {data: {conversations: @conversations}}
   end
 
