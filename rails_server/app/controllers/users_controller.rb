@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def create
-            # p params
+             p params
             # p 'http post request made to users create'
     @user = User.new(user_params)
     if @user.save
@@ -33,10 +33,18 @@ class UsersController < ApplicationController
     # end
   end
 
+  def show
+    user = User.find_by(username: params[:id])
+    you = User.find(session[:user])
+    p '%%%%%SHOW USER%%%%%%'
+    p user
+    render :json => {user:{n: user.public_key_n, e:user.public_key_e, your_n: you.public_key_n, your_e: you.public_key_e}}.to_json, status: :created
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :public_key_n,:public_key_e)
   end
 
 end

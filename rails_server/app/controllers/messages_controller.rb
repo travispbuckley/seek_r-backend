@@ -22,7 +22,7 @@ skip_before_action :verify_authenticity_token
     @receiver = User.find_by(username: params[:message][:receiver])
     @sender = User.find(session[:user])
     @conversation
-    @message = Message.new(sender_id:@sender.id,receiver_id:@receiver.id,body:params[:message][:body])
+    @message = Message.new(sender_id:@sender.id,receiver_id:@receiver.id,body:params[:message][:body],your_message:params[:message][:your_message])
     @message.location = params[:message][:location] # this is optional; may need to specify or nil/string
     if @message.save
       p "%%%%%%%SUCCESSFUL MESSAGE CREATION%%%%%%"
@@ -37,7 +37,8 @@ skip_before_action :verify_authenticity_token
     you = User.find(session[:user])
     messages = Message.where(sender_id:[you.id,user.id], receiver_id: [user.id,you.id]).order(:created_at)
     messages_bodies = messages.map do |message|
-        message.sender.username + ": " + message.body
+        # message.sender.username + ": " + message.body
+        message.your_message
     end
 
     # debug: this currently grabs EITHER user's location- ideally, i would set it to the other users' location.
@@ -50,6 +51,14 @@ skip_before_action :verify_authenticity_token
       longitude = 0
     end
     location = [latitude.to_f, longitude.to_f] # random note: floats appear with "123.456" in the JSON (unlike Integers)
-    render :json => {data: {messages: messages_bodies}, location: location}
+    render :json => {data: {messages: messages_bodies,you: you.username}, location: location}
   end
+
+  # Secret
+# 107148485092967
+# Secret
+# 107148485092967
+# user:ggg
+# privated :365358727056417379866577191241056523184606166181446026313313
+          # 365358727056417379866577191241056523184606166181446026313313
 end
