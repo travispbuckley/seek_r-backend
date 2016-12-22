@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 20161221163722) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "public_key_n"
+    t.string   "username",                    null: false
+    t.string   "password_digest",             null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "public_key_n",    limit: 500
     t.string   "public_key_e"
   end
 
