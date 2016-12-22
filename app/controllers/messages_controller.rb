@@ -44,7 +44,13 @@ skip_before_action :verify_authenticity_token
         message.body
       end
     end
-
+    sender_names = messages.map do |message|
+      message.sender.username
+    end
+    send_times = messages.map do |message|
+      message.created_at.to_s[/\s\S{8}/]
+    end
+    p send_times
     # debug: this currently grabs EITHER user's location- ideally, i would set it to the other users' location.
     location = messages.where("location != ''").last.try("location") # this grabs the last location sent (that wasn't an empty field)
     if !location.nil? # this is so location is not nil and empty... (ie. first message most likely wont have location)
@@ -55,7 +61,7 @@ skip_before_action :verify_authenticity_token
       longitude = 0
     end
     location = [latitude.to_f, longitude.to_f] # random note: floats appear with "123.456" in the JSON (unlike Integers)
-    render :json => {data: {messages: messages_bodies,you: you.username}, location: location}
+    render :json => {data: {messages: messages_bodies,you: you.username,sender_names: sender_names, send_times: send_times}, location: location}
   end
 
   # Secret
