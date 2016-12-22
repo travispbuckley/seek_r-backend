@@ -1,5 +1,0 @@
-0000000000000000000000000000000000000000 244fbcd0b231dca34b4658fd5092df2ffcf15fae Kenneth Kang <email": null> 1482165393 -0600	branch: Created from HEAD
-244fbcd0b231dca34b4658fd5092df2ffcf15fae 73b2528a70566afd3fccaa204e07c37aa181c5dd Kenneth Kang <email": null> 1482184170 -0600	pull origin master: Fast-forward
-73b2528a70566afd3fccaa204e07c37aa181c5dd 28f952fd9add359bcaf90f88d6a1887c462a99a5 Kenneth Kang <email": null> 1482185784 -0600	commit: adding migrate
-28f952fd9add359bcaf90f88d6a1887c462a99a5 96caa6235289dcbeee99d8cef857e2a81aee6a57 Kenneth Kang <email": null> 1482185989 -0600	commit: add location to message controller
-96caa6235289dcbeee99d8cef857e2a81aee6a57 d8c2232963f251133e45817619e2c875a21a49c7 Kenneth Kang <email": null> 1482186637 -0600	commit: add gps location to message

@@ -1,6 +1,0 @@
-# pack-refs with: peeled fully-peeled 
-bf1dd8ac92b0702aacf9748a4cc4ea3146ef05f4 refs/remotes/origin/add_git_ignore
-bf2e7ea92ed9af217cebf39cdf45d3fed39c2d5e refs/remotes/origin/conversations
-244fbcd0b231dca34b4658fd5092df2ffcf15fae refs/remotes/origin/master
-6a684324c5a696c6756589bb7a432268bda2c3ba refs/remotes/origin/messages
-667f602da865481ba5ed5036ba61d126f1d804d3 refs/remotes/origin/sessions
